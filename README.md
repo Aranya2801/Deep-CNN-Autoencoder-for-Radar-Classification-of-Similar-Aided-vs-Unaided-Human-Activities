@@ -127,16 +127,16 @@ the five load-carrying activities that don't change gait kinematics much:
 <table>
 <tr><td>
 
-![Confusion Matrix](docs/figures/confusion_matrix.png)
+![Confusion Matrix](confusion_matrix.png)
 
 </td><td>
 
-![Latent Space](docs/figures/latent_space_pca_tsne.png)
+![Latent Space](latent_space_pca_tsne.png)
 
 </td></tr>
 </table>
 
-![Occlusion Explainability](docs/figures/occlusion_explainability.png)
+![Occlusion Explainability](occlusion_explainability.png)
 
 Full per-class breakdown, calibration curve, ROC curves, and the scientific
 discussion of *why* this error pattern is the right finding (not a bug):
