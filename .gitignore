@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Data & artifacts (DVC-tracked, not git-tracked)
+data/raw/*
+data/processed/*
+data/simulated/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/simulated/.gitkeep
+artifacts/
+*.pt
+*.pth
+*.joblib
+*.onnx
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Logs
+*.log
+logs/
+
+# Env
+.env
+*.env.local
+
+# Frontend
+frontend/dashboard-react/node_modules/
+frontend/dashboard-react/dist/
+frontend/dashboard-react/.vite/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/

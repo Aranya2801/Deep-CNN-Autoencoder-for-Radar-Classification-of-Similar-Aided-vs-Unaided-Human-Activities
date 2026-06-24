@@ -1,0 +1,67 @@
+stages:
+  simulate_data:
+    cmd: python reference_pipeline/simulate_data.py
+    deps:
+      - src/radar_har/simulation/micro_doppler_simulator.py
+      - reference_pipeline/simulate_data.py
+    params:
+      - data.seed
+      - data.n_per_class
+    outs:
+      - data/simulated/dataset.npz
+
+  train_reference:
+    cmd: python reference_pipeline/train_reference_model.py
+    deps:
+      - data/simulated/dataset.npz
+      - reference_pipeline/feature_extraction.py
+      - reference_pipeline/train_reference_model.py
+    params:
+      - data.seed
+    outs:
+      - artifacts/reference/model.joblib
+      - artifacts/reference/split_indices.npz
+
+  evaluate_reference:
+    cmd: python reference_pipeline/evaluate_reference_model.py
+    deps:
+      - artifacts/reference/model.joblib
+      - reference_pipeline/evaluate_reference_model.py
+    metrics:
+      - artifacts/reference/test_report.json:
+          cache: false
+    outs:
+      - docs/figures/confusion_matrix.png
+      - docs/figures/roc_curves.png
+      - docs/figures/calibration_curve.png
+      - docs/figures/latent_space_pca_tsne.png
+      - docs/figures/occlusion_explainability.png
+
+  # Production PyTorch stages (require `pip install torch`; run manually or
+  # in the `train.yml` GitHub Actions workflow on a GPU runner)
+  train_production:
+    cmd: python -m radar_har.train
+    wdir: .
+    deps:
+      - src/radar_har
+      - params.yaml
+    params:
+      - training.epochs
+      - training.lr
+      - model.base_channels
+    outs:
+      - artifacts/best_model.pt
+    metrics:
+      - artifacts/history.json:
+          cache: false
+
+  evaluate_production:
+    cmd: python -m radar_har.evaluate
+    deps:
+      - artifacts/best_model.pt
+    metrics:
+      - artifacts/test_report.json:
+          cache: false
+    outs:
+      - artifacts/confusion_matrix.png
+      - artifacts/roc_curves.png

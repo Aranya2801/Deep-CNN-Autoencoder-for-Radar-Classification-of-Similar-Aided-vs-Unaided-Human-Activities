@@ -1,0 +1,39 @@
+# params.yaml
+# ===========
+# Single source of truth for hyperparameters, read by:
+#   - src/radar_har/config.py        (TrainConfig)
+#   - dvc.yaml                       (DVC pipeline stages reference this file)
+#   - reference_pipeline scripts     (n_per_class, seed)
+#
+# Edit here, then `dvc repro` reproduces the full pipeline end to end.
+
+data:
+  seed: 42
+  n_per_class: 220
+  spectrogram_size: [128, 128]
+  in_channels: 1
+  val_frac: 0.15
+  test_frac: 0.15
+
+model:
+  base_channels: 32
+  embedding_dim: 256
+  dropout: 0.1
+  num_classes: 14
+
+training:
+  batch_size: 32
+  epochs: 40
+  lr: 0.0003
+  weight_decay: 0.0001
+  early_stopping_patience: 8
+  label_smoothing: 0.05
+
+loss_weights:
+  cls_weight: 1.0
+  recon_weight: 0.5
+  confidence_weight: 0.2
+
+mlops:
+  mlflow_experiment: radar-har
+  artifacts_dir: artifacts

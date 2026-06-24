@@ -1,0 +1,86 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+title: "Deep CNN Autoencoder for Radar Classification of Similar Aided vs. Unaided Human Activities"
+version: 1.0.0
+date-released: 2026-06-21
+type: software
+license: MIT
+repository-code: "https://github.com/your-org/deep-cnn-autoencoder-radar-har"
+abstract: >
+  A research-grade, production-ready platform for radar-based human
+  activity recognition (HAR), distinguishing unaided activities (walking,
+  running, falling, etc.) from visually/spectrally similar aided activities
+  (walking with a cane/walker/crutches, carrying luggage, pushing a
+  trolley, etc.) using a multi-task deep residual CNN autoencoder with CBAM
+  attention, trained on micro-Doppler radar spectrograms. Includes a
+  physics-inspired simulator, explainability (Grad-CAM/occlusion),
+  self-supervised contrastive pretraining, domain-adaptation and federated-
+  learning hooks, a FastAPI backend, and a React dashboard.
+authors:
+  - name: "Radar-HAR Contributors"
+keywords:
+  - radar
+  - micro-doppler
+  - human activity recognition
+  - deep learning
+  - convolutional neural network
+  - autoencoder
+  - attention mechanism
+  - explainable AI
+  - assistive technology
+  - fall detection
+references:
+  - type: article
+    title: "Micro-Doppler-based in-home aided and unaided walking recognition with multiple radar and sonar systems"
+    authors:
+      - name: "S. Z. Gurbuz"
+      - name: "C. Clemente"
+      - name: "A. Balleri"
+      - name: "J. J. Soraghan"
+    journal: "IET Radar, Sonar & Navigation"
+    year: 2017
+    doi: "10.1049/iet-rsn.2016.0214"
+  - type: conference-paper
+    title: "Radar-Based Human Gait Recognition in Cane-Assisted Walks"
+    authors:
+      - name: "C. Seifert"
+      - name: "M. G. Amin"
+      - name: "A. M. Zoubir"
+    conference: "IEEE Radar Conference (RadarConf)"
+    year: 2017
+  - type: article
+    title: "Human gait recognition with cane assistive device using quadratic time-frequency distributions"
+    authors:
+      - name: "M. G. Amin"
+      - name: "F. Ahmad"
+      - name: "Y. D. Zhang"
+      - name: "B. Boashash"
+    journal: "IET Radar, Sonar & Navigation"
+    year: 2015
+  - type: article
+    title: "Deep Residual Learning for Image Recognition"
+    authors:
+      - name: "K. He"
+      - name: "X. Zhang"
+      - name: "S. Ren"
+      - name: "J. Sun"
+    year: 2016
+    conference: "CVPR"
+  - type: conference-paper
+    title: "CBAM: Convolutional Block Attention Module"
+    authors:
+      - name: "S. Woo"
+      - name: "J. Park"
+      - name: "J.-Y. Lee"
+      - name: "I. S. Kweon"
+    conference: "ECCV"
+    year: 2018
+  - type: conference-paper
+    title: "A Simple Framework for Contrastive Learning of Visual Representations"
+    authors:
+      - name: "T. Chen"
+      - name: "S. Kornblith"
+      - name: "M. Norouzi"
+      - name: "G. Hinton"
+    conference: "ICML"
+    year: 2020
